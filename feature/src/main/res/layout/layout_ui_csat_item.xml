@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="co.idearun.feature.viewmodel.UIViewModel" />
+
+        
+        <variable
+            name="field"
+            type="co.idearun.data.model.form.Fields" />
+        <variable
+            name="form"
+            type="co.idearun.data.model.form.Form" />
+
+        
+    </data>
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_small"
+        android:gravity="center_vertical">
+
+
+        <include
+            android:id="@+id/field_ui_header"
+            layout="@layout/layout_ui_field_header" />
+
+        <RelativeLayout
+            android:id="@+id/starlay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_xsmall"
+            android:minHeight="@dimen/btn_h_l"
+            android:layout_below="@+id/field_ui_header"
+
+            app:field_background="@{form}">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:id="@+id/csat_icon_res"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+       
+    </RelativeLayout>
+</layout>

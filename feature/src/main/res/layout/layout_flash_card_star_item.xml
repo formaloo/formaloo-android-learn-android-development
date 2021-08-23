@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="co.idearun.feature.viewmodel.UIViewModel" />
+
+        
+        <variable
+            name="field"
+            type="co.idearun.data.model.form.Fields" />
+
+        <variable
+            name="form"
+            type="co.idearun.data.model.form.Form" />
+
+        
+    </data>
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_small">
+
+
+        <include
+            android:id="@+id/field_ui_header"
+            layout="@layout/layout_ui_field_header" />
+
+        <RelativeLayout
+            android:id="@+id/starlay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/field_ui_header"
+            android:minHeight="@dimen/btn_h_l"
+            android:padding="@dimen/padding_standard"
+            app:field_background="@{form}">
+
+            <androidx.appcompat.widget.AppCompatRatingBar
+                android:id="@+id/star_rating"
+                style="?android:attr/ratingBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:isIndicator="false"
+                app:progressTint="@{form.text_color}"
+                android:numStars="5"
+                android:paddingTop="@dimen/padding_small"
+                android:stepSize="1" />
+
+        </RelativeLayout>
+
+        
+    </RelativeLayout>
+</layout>

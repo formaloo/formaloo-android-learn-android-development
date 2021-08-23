@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+        <variable
+            name="viewmodel"
+            type="co.idearun.feature.viewmodel.UIViewModel" />
+
+        
+        <variable
+            name="field"
+            type="co.idearun.data.model.form.Fields" />
+        <variable
+            name="form"
+            type="co.idearun.data.model.form.Form" />
+
+        
+    </data>
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_small">
+
+        <include
+            android:id="@+id/field_ui_header"
+            layout="@layout/layout_ui_field_header" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_below="@+id/field_ui_header"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            
+        <LinearLayout
+            android:id="@+id/choices_list_lay"
+            android:minHeight="@dimen/btn_h_l"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/field_ui_header"
+            android:padding="@dimen/padding_xsmall"
+            android:orientation="vertical">
+
+        </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    
+       
+    </RelativeLayout>
+</layout>

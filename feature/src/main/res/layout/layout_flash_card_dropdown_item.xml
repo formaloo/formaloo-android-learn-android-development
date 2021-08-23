@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="co.idearun.feature.viewmodel.UIViewModel" />
+
+        
+        <variable
+            name="field"
+            type="co.idearun.data.model.form.Fields" />
+
+        <variable
+            name="form"
+            type="co.idearun.data.model.form.Form" />
+
+        
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_small">
+
+        <include
+            android:id="@+id/field_ui_header"
+            layout="@layout/layout_ui_field_header" />
+
+        <RelativeLayout
+            android:id="@+id/spinner_value_lay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/field_ui_header"
+            android:minHeight="@dimen/btn_h_l"
+            android:padding="@dimen/padding_xsmall"
+            android:visibility="visible">
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/value_spinner"
+                field_background="@{form}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                app:items="@{field.choice_items}" />
+
+            <ImageButton
+                android:layout_width="@dimen/icon_size_standard"
+                android:layout_height="@dimen/icon_size_standard"
+                android:background="@null"
+                android:layout_marginEnd="@dimen/padding_standard"
+                android:layout_alignParentEnd="true"
+                android:clickable="false"
+                android:layout_centerVertical="true"
+                android:focusable="false"
+                android:scaleType="centerInside"
+                android:src="@android:drawable/arrow_down_float"
+                app:imageTintList="@{form.text_color}" />
+
+        </RelativeLayout>
+
+        
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="co.idearun.feature.viewmodel.UIViewModel" />
+
+        
+        <variable
+            name="field"
+            type="co.idearun.data.model.form.Fields" />
+
+        <variable
+            name="form"
+            type="co.idearun.data.model.form.Form" />
+
+        
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/padding_small">
+
+        <include
+            android:id="@+id/field_ui_header"
+            layout="@layout/layout_ui_field_header" />
+    
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/matrix_scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/field_ui_header"
+            android:layout_alignParentStart="true"
+            android:minHeight="@dimen/btn_h_l"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_xsmall"
+            android:scrollbars="horizontal"
+            android:visibility="visible"
+            android:layout_alignParentLeft="true">
+        
+            <LinearLayout
+                android:layout_below="@+id/field_ui_header"
+                android:id="@+id/matrix_lay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" />
+        </androidx.core.widget.NestedScrollView>
+
+        
+    </RelativeLayout>
+</layout>

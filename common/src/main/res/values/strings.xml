@@ -1,0 +1,50 @@
+<resources>
+  <string name="skip_this_activity">Skip this activity</string>
+  <string name="next">Next</string>
+  <string name="im_done">I<![CDATA[\']]>m done</string>
+  <string name="from">form</string>
+  <string name="to">to</string>
+  <string name="from_date">form date</string>
+  <string name="to_date">to date</string>
+  <string name="max_char_lenght">Maximum number of characters</string>
+  <string name="max_file_size">Maximum file size</string>
+  <string name="file_is_bigger_than_required_size">Max file size</string>
+  <string name="click_to_upload_file">Upload File</string>
+  <string name="upload_file_image_Desc">(png,jpg,gif,bmp)</string>
+  <string name="upload_file_image_doc">(txt,pdf,docx,xls,xlsx,ppt,pptx)</string>
+  <string name="no">No</string>
+  <string name="yes">Yes</string>
+  <string name="min_value">Minimum value</string>
+  <string name="max_value">Maximum value</string>
+  <string name="file_type">File type</string>
+  <string name="angry">Hate</string>
+  <string name="sad">Dislike</string>
+  <string name="neutral">Neutral</string>
+  <string name="smile">Like</string>
+  <string name="love">Love</string>
+  <string name="empty_txt"></string>
+  <string name="dash">-</string>
+  <string name="phone_">phone</string>
+  <string name="other">Other</string>
+  <string name="formaloo_site_address">https://formaloo.net/</string>
+  <string name="share_form_link_via">Share Form Address:</string>
+    <string name="last_lesson_title">Your Learning</string>
+  <string name="last_lesson_desc">Jump back into your most recent lesson.</string>
+  <string name="lesson_completion">Lesson Completion</string>
+  <string name="continue_this_lesson">continue this lesson</string>
+  <string name="your_lessons">Your Lessons</string>
+  <string name="lesson_list_desc">Take lessons based on the skills you chose.</string>
+  <string name="made_by_desc">Made with passion by Formaloo</string>
+  <string name="made_by_desc3"><a href="https://formaloo.net/">Made with passion by Formaloo</a></string>
+  <string name="made_by_desc2">Made with passion by</string>
+  <string name="appAddress">https://play.google.com/store/apps/details?id=co.idearun.learnandroid</string>
+  <string name="about">About</string>
+  <string name="review">Review</string>
+  <string name="start">Start</string>
+	<string name="app_desc">Learn Android App helps you review and practice android development basics.
+      \n\nThis app is also an open source project you can find the code on <a href="https://github.com/formaloo/formaloo-android-learn-android-development.git">github repository.</a>
+      \n\nDo not forget to star <a href="https://play.google.com/store/apps/details?id=co.idearun.learnandroid">Learn Android App</a> if you find it helpful.
+      
+</string>
+
+</resources>

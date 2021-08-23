@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+	
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="@color/bg"
+		android:gravity="start"
+		android:orientation="vertical"
+		android:padding="@dimen/padding_standard">
+		
+		<ImageButton
+			android:layout_width="@dimen/icon_size_large"
+			android:layout_alignParentStart="true"
+			android:src="@drawable/ic_close"
+			android:background="@null"
+			android:id="@+id/close_btn"
+			android:layout_height="@dimen/icon_size_large"
+			app:tint="@color/gray2"
+			android:layout_alignParentLeft="true" />
+		
+		<TextView
+			android:id="@+id/txvTitle"
+			android:textAlignment="gravity"
+			android:gravity="center_vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="@dimen/icon_size_large"
+			android:text="@string/app_name"
+			android:layout_centerHorizontal="true"
+			android:layout_marginBottom="@dimen/padding_3xlarge"
+			android:textColor="@color/gray2"
+			android:textSize="@dimen/font_2xlarge" />
+		
+		<TextView
+			android:id="@+id/txv"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/txvTitle"
+			app:movementMethod="@{true}"
+			android:lineSpacingExtra="@dimen/padding_small"
+			android:text="@string/app_desc"
+			android:textColor="@color/gray2"
+			android:textSize="@dimen/font_xlarge"/>
+		
+		<TextView
+			android:id="@+id/made_by_txv"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentBottom="true"
+			android:layout_gravity="center_horizontal|bottom"
+			android:background="@color/bg"
+			android:layout_centerHorizontal="true"
+			android:paddingTop="@dimen/padding_2xsmall"
+			android:paddingBottom="@dimen/padding_small"
+			app:movementMethod="@{true}"
+			android:text="@string/made_by_desc3"
+			android:textAlignment="center"
+			android:textSize="@dimen/font_small" />
+	</RelativeLayout>
+</layout>

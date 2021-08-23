@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="co.idearun.feature.viewmodel.UIViewModel" />
+
+        
+        <variable
+            name="field"
+            type="co.idearun.data.model.form.Fields" />
+        <variable
+            name="form"
+            type="co.idearun.data.model.form.Form" />
+
+        
+        <variable
+            name="holder"
+            type="co.idearun.feature.lesson.adapter.holder.NpsItemAdapter.NPSItemViewHolder" />
+
+    </data>
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/nps_btn"
+            nps_color="@{form}"
+            nps_data="@{viewmodel.npsPos==holder.adapterPosition?true:false}"
+            text_color="@{viewmodel.formData.form.submit_text_color}"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/btn_h_l"
+            android:textSize="@dimen/font_xlarge"
+            android:layout_alignParentStart="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:onClick="@{()->viewmodel.npsBtnClicked(field,holder.adapterPosition)}"
+            android:text="@{String.valueOf(holder.adapterPosition)}"
+            android:textAlignment="center" />
+
+
+    </RelativeLayout>
+</layout>

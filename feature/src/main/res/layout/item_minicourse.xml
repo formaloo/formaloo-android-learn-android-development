@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="@dimen/padding_standard"
+    >
+
+    <TextView
+        android:id="@+id/titleTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/font_3xlarge"
+        android:text="advanced kotlin language for amatour android"/>
+
+    <TextView
+        android:id="@id/categoryTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleTv"
+        android:layout_marginVertical="@dimen/padding_standard"
+        android:text="Curated by formaloo team"
+        android:textSize="@dimen/font_large" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/startBtn"
+        android:layout_width="154dp"
+        android:layout_height="48dp"
+        android:background="@drawable/button_start"
+        android:textColor="@color/white"
+        android:layout_below="@+id/categoryTv"
+        android:text="Start"
+        android:textAllCaps="true"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="@dimen/img_size_s"
+        android:layout_height="@dimen/img_size_s"
+        android:layout_below="@+id/startBtn"
+        tools:srcCompat="@tools:sample/avatars"
+        android:layout_alignParentEnd="true"
+        />
+
+
+</RelativeLayout>

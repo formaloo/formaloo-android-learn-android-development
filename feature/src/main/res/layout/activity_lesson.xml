@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="progress"
+            type="Integer" />
+
+        <variable
+            name="view"
+            type="android.view.View" />
+
+        <variable
+            name="form"
+            type="co.idearun.data.model.form.Form" />
+
+        <variable
+            name="flashcardListener"
+            type="co.idearun.feature.lesson.listener.LessonListener" />
+
+        <variable
+            name="viewmodel"
+            type="co.idearun.feature.viewmodel.UIViewModel" />
+
+        
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/activity_flash_card"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    
+        <ImageView
+            android:layout_width="match_parent"
+            android:scaleType="centerCrop"
+            app:formBack="@{viewmodel.formData.form}"
+            android:layout_height="match_parent"/>
+        
+        <RelativeLayout
+            android:id="@+id/flash_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_small"
+            android:transitionName="form_item_lay"
+            tools:targetApi="lollipop">
+
+            <ImageButton
+                android:id="@+id/flash_close_btn"
+                android:layout_width="@dimen/icon_size_large"
+                android:layout_height="@dimen/icon_size_large"
+                android:layout_alignParentStart="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:onClick="@{()->flashcardListener.closePage()}"
+                android:scaleType="center"
+                android:src="@drawable/ic_close"
+                app:imageTintList="@{form.text_color}"
+                app:tint="@color/white" />
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/form_progress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/flash_share_btn"
+                android:layout_toEndOf="@+id/flash_close_btn"
+                android:max="@{form.fields_list!=null?form.fields_list.size():10}"
+                android:progress="@{progress}"
+                app:progressTint="@{form.text_color}" />
+
+            <ImageButton
+                android:id="@+id/flash_share_btn"
+                android:layout_width="@dimen/icon_size_large"
+                android:layout_height="@dimen/icon_size_large"
+                android:layout_alignParentEnd="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:onClick="@{()->flashcardListener.share()}"
+                android:padding="@dimen/padding_small"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_share"
+                app:imageTintList="@{form.text_color}"
+                app:tint="@color/white" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/flash_bottombar"
+            android:layout_below="@+id/flash_bar"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/flashcard_fields_rec"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:nestedScrollingEnabled="false"
+                app:items="@{form}"
+                tools:targetApi="lollipop" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/flash_bottombar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:padding="@dimen/padding_small">
+
+            <ImageButton
+                android:id="@+id/flash_next_btn"
+                android:layout_width="@dimen/icon_size_large"
+                android:layout_height="@dimen/icon_size_large"
+                android:layout_alignParentEnd="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:onClick="@{()->flashcardListener.next()}"
+                android:padding="@dimen/padding_small"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_arrow_right"
+                app:imageTintList="@{form.text_color}"
+                app:tint="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/flashcard_done_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/btn_h"
+                android:layout_centerHorizontal="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:onClick="@{()->flashcardListener.next()}"
+                android:text="@string/im_done"
+                android:textAlignment="gravity"
+                android:textSize="@dimen/font_standard"
+                android:visibility="gone"
+                app:text_color="@{form.text_color}" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/flashcard_skip_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/btn_h"
+                android:layout_centerHorizontal="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:onClick="@{()->flashcardListener.next()}"
+                android:text="@string/skip_this_activity"
+                android:textAlignment="gravity"
+                android:textSize="@dimen/font_standard"
+                android:visibility="gone"
+                app:text_color="@{form.text_color}" />
+
+            <ImageButton
+                android:id="@+id/flash_pre_btn"
+                android:layout_width="@dimen/icon_size_large"
+                android:layout_height="@dimen/icon_size_large"
+                android:layout_alignParentStart="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:onClick="@{()->flashcardListener.pre()}"
+                android:padding="@dimen/padding_small"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_arrow_left"
+                app:imageTintList="@{form.text_color}"
+                app:tint="@color/white" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/flashCongView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone">
+
+            <include
+                android:id="@+id/layout_fash_cong"
+                layout="@layout/layout_flash_cong" />
+
+        </RelativeLayout>
+        
+<!--        <ImageView-->
+<!--            android:background="@color/white"-->
+<!--            android:src="@mipmap/ic_launcher"-->
+<!--            android:scaleType="center"-->
+<!--	        android:visibility="@{form.fields_list.size()>0?view.GONE:view.VISIBLE,default=visible}"-->
+<!--            android:id="@+id/lesson_loading_imv"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"/>-->
+    </RelativeLayout>
+</layout>

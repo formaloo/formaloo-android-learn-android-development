@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_3xsmall">3dp</dimen>
+    <dimen name="padding_2xsmall">5dp</dimen>
+    <dimen name="padding_xsmall">7.5dp</dimen>
+    <dimen name="padding_small">10dp</dimen>
+    <dimen name="padding_standard">16dp</dimen>
+    <dimen name="padding_large">20dp</dimen>
+    <dimen name="padding_xlarge">22dp</dimen>
+    <dimen name="padding_2xlarge">26dp</dimen>
+    <dimen name="padding_3xlarge">30dp</dimen>
+
+    <dimen name="font_standard">14sp</dimen>
+    <dimen name="font_xsmall">10sp</dimen>
+    <dimen name="font_2xsmall">8sp</dimen>
+    <dimen name="font_small">12sp</dimen>
+    <dimen name="font_large">16sp</dimen>
+    <dimen name="font_xlarge">18sp</dimen>
+    <dimen name="font_2xlarge">20sp</dimen>
+    <dimen name="font_3xlarge">24sp</dimen>
+    <dimen name="font_4xlarge">28sp</dimen>
+
+    <dimen name="btn_radios_standard">7dp</dimen>
+    <dimen name="btn_radios_small">3dp</dimen>
+    <dimen name="btn_radios_full">100dp</dimen>
+
+    <dimen name="divider_space_small">3dp</dimen>
+    <dimen name="divider_space_standard">5dp</dimen>
+    <dimen name="divider_space_large">8dp</dimen>
+    <dimen name="divider_space_xlarge">10dp</dimen>
+    <dimen name="divider_space_2xlarge">15dp</dimen>
+
+
+    <dimen name="category_item_width">100dp</dimen>
+    <dimen name="category_img_size">150dp</dimen>
+
+    <dimen name="img_size_xs">72dp</dimen>
+    <dimen name="img_size_s">100dp</dimen>
+    <dimen name="img_size">150dp</dimen>
+    <dimen name="img_size_l">200dp</dimen>
+
+
+    <dimen name="edt_h">40dp</dimen>
+    <dimen name="edt_h_l">50dp</dimen>
+    <dimen name="edt_h_full">150dp</dimen>
+
+    <dimen name="btn_h_s">36dp</dimen>
+    <dimen name="btn_h">40dp</dimen>
+    <dimen name="btn_h_l">48dp</dimen>
+
+    <dimen name="spinning_bar_width">1dp</dimen>
+
+    <dimen name="header_size">150dp</dimen>
+    <dimen name="slider_size">200dp</dimen>
+
+    <dimen name="navigation_view_width">250dp</dimen>
+    
+    <dimen name="lottie">300dp</dimen>
+
+
+    <dimen name="filter_group_width">150dp</dimen>
+
+    <dimen name="products_grid_width">160dp</dimen>
+
+    <dimen name="icon_size_standard">24dp</dimen>
+    <dimen name="icon_size_large">36dp</dimen>
+    <dimen name="icon_size_small">18dp</dimen>
+
+    <dimen name="product_img_h">350dp</dimen>
+
+    <dimen name="amount_card">64dp</dimen>
+
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+
+</resources>

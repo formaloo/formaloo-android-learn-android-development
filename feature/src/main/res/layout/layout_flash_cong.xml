@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="form"
+            type="co.idearun.data.model.form.Form" />
+
+        <variable
+            name="flashcardListener"
+            type="co.idearun.feature.lesson.listener.LessonListener" />
+
+        <variable
+            name="viewmodel"
+            type="co.idearun.feature.viewmodel.UIViewModel" />
+
+        
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="@dimen/padding_large"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/cong_imv"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="@dimen/padding_large"
+            android:layout_height="@dimen/lottie"
+            app:lottie_autoPlay="true"
+            android:layout_marginBottom="@dimen/padding_xlarge"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/happiness" />
+
+        <TextView
+            android:id="@+id/contxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/padding_xlarge"
+            app:htmlTxt="@{form.success_message}"
+            android:textAlignment="center"
+            text_color="@{form.text_color}"
+            android:textSize="@dimen/font_2xlarge" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="Home"
+            android:id="@+id/home"
+            android:onClick="@{()->flashcardListener.closePage()}"
+            android:textSize="@dimen/font_standard"
+            android:background="?attr/colorPrimary"/>
+        
+    </LinearLayout>
+</layout>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        
+        <variable
+            name="progress"
+            type="Integer" />
+
+        <variable
+            name="listener"
+            type="co.idearun.feature.home.adapter.LessonListListener" />
+
+        <variable
+            name="view"
+            type="android.view.View" />
+
+        <variable
+            name="item"
+            type="co.idearun.data.model.form.Form" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical"
+        android:visibility="@{progress>0?View.VISIBLE:View.GONE,default=gone}">
+
+        <TextView
+            android:layout_marginStart="@dimen/padding_standard"
+            android:layout_marginEnd="@dimen/padding_standard"
+            android:layout_marginTop="@dimen/padding_standard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/last_lesson_title"
+            android:textColor="@color/gray1"
+            android:textSize="@dimen/font_standard"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_marginStart="@dimen/padding_standard"
+            android:layout_marginEnd="@dimen/padding_standard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/last_lesson_desc"
+            android:textColor="@color/gray2"
+            android:textSize="@dimen/font_standard" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/padding_standard"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/btn_radios_standard"
+            app:cardElevation="1dp">
+            
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="@dimen/img_size_xs"
+                android:layout_height="@dimen/img_size_xs"
+                android:layout_marginTop="@dimen/padding_2xlarge"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                app:imageUrl="@{item.logo}"
+                android:src="@mipmap/ic_launcher" />
+
+
+            <TextView
+                android:id="@+id/titleTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_2xlarge"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:paddingHorizontal="@dimen/padding_xlarge"
+                android:text="@{item.title}"
+                android:textAlignment="center"
+                android:textColor="@color/gray2"
+                android:textSize="@dimen/font_xlarge" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/continueBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:layout_marginTop="@dimen/padding_2xlarge"
+                android:background="@drawable/button_start"
+                android:onClick="@{(v)->listener.openLessonPage(item,v,progress)}"
+                android:paddingHorizontal="@dimen/padding_large"
+                android:text="@string/continue_this_lesson"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:textSize="@dimen/font_standard"
+                android:textColor="@color/white"
+                android:transitionName="form_item_lay"
+                tools:targetApi="lollipop" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/padding_standard"
+                android:background="#FFF4F4F4" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/padding_standard"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/progressTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lesson_completion"
+                    android:textColor="@color/gray2"
+                    android:textSize="@dimen/font_small" />
+
+                <TextView
+                    android:id="@+id/percentTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="@{Integer.toString((progress*100)/(item.fields_list.size()==0?1:item.fields_list.size()))+' '+'%'}"
+                    android:textColor="@color/gray2"
+                    android:textSize="@dimen/font_small" />
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/progressBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/progressTv"
+                    android:layout_marginTop="@dimen/padding_small"
+                    android:layout_marginBottom="@dimen/padding_2xsmall"
+                    android:max="@{item.fields_list!=null?item.fields_list.size():10}"
+                    android:progress="@{progress}"
+                    android:visibility="@{progress!=null &amp;&amp; progress>0 ? view.VISIBLE: view.GONE }" />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</layout>

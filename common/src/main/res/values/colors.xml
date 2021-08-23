@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="blue_200">#68CAE8</color>
+  <color name="blue_500">#00B6EE</color>
+  <color name="purple_700">#FF3700B3</color>
+  <color name="teal_200">#FF03DAC5</color>
+  <color name="teal_700">#FF018786</color>
+  <color name="black">#FF000000</color>
+  <color name="white">#FFFFFFFF</color>
+
+  <color name="learning">#F26262</color>
+
+
+
+  <color name="gray1">#333333</color>
+  <color name="gray2">#4F4F4F</color>
+<!--  <color name="bg">#F0F3F4</color>-->
+  <color name="bg">#EBEFF2</color>
+  <color name="gray">#D6D6D6</color>
+
+  <color name="colorRed">#F43A3B</color>
+  <color name="pink">#e77171</color>
+  <color name="purple">#D934A8</color>
+  <color name="colorGreen">#00B424</color>
+  <color name="colorButton">#0065DC</color>
+  <color name="colorGoogle">#007BFF</color>
+  <color name="colorUnActiveButton">#a1d0ff</color>
+  <color name="colorBlueLight">#E4F0FF</color>
+  <color name="blue">#AEE9FA</color>
+  <color name="colorBlue">#2196F3</color>
+  <color name="colorWhite">#FFF</color>
+  <color name="colorBlack">#212121</color>
+  <color name="colorGlass">#00ffffff</color>
+
+</resources>

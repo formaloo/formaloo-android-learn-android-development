@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="listener"
+            type="co.idearun.feature.MainListener" />
+        <variable
+            name="viewmodel"
+            type="co.idearun.feature.viewmodel.FormViewModel" />
+    </data>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="false"
+        tools:openDrawer="start">
+
+        <include
+            android:id="@+id/app_bar_main"
+            layout="@layout/app_bar_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/bg">
+
+                <include
+                    android:id="@+id/nav_header"
+                    layout="@layout/nav_header_main" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/categoryRv"
+                    android:layout_below="@+id/nav_header"
+                    android:layout_above="@+id/navMore"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:items="@{viewmodel.formMap}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/layout_form_item" />
+
+                <LinearLayout
+                    android:id="@+id/navMore"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <LinearLayout
+                    android:id="@+id/about"
+                    android:orientation="horizontal"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:layout_width="match_parent"
+                    android:padding="@dimen/padding_standard"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/iconTv"
+                        android:layout_width="@dimen/icon_size_standard"
+                        android:layout_height="@dimen/icon_size_standard"
+                        android:layout_marginEnd="@dimen/padding_standard"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_flashcard" />
+
+                    <TextView
+                        android:id="@+id/titleTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:text="About"
+                        android:textColor="@color/gray2"
+                        android:textSize="@dimen/font_xlarge" />
+
+                </LinearLayout>
+                
+                <LinearLayout
+                    android:id="@+id/madeby"
+                    android:onClick="@{(v)->listener.openFormaloo(v)}"
+                    android:orientation="horizontal"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:layout_width="match_parent"
+                    android:paddingStart="@dimen/padding_standard"
+                    android:paddingEnd="@dimen/padding_small"
+                    android:paddingTop="@dimen/padding_small"
+                    android:paddingBottom="@dimen/padding_small"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/made_by_txv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:text="@string/made_by_desc2"
+                        android:textColor="@color/gray2"
+                        android:textSize="@dimen/font_small" />
+                    <ImageView
+                        android:id="@+id/iconmadeby"
+                        android:padding="@dimen/padding_2xsmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/icon_size_standard"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/formaloo_text_logo" />
+                </LinearLayout>
+
+           
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </com.google.android.material.navigation.NavigationView>
+    </androidx.drawerlayout.widget.DrawerLayout>
+</layout>

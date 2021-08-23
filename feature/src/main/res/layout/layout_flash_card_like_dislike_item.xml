@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="co.idearun.feature.viewmodel.UIViewModel" />
+
+        
+        <variable
+            name="field"
+            type="co.idearun.data.model.form.Fields" />
+
+        <variable
+            name="form"
+            type="co.idearun.data.model.form.Form" />
+
+        
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_small">
+
+
+        <include
+            android:id="@+id/field_ui_header"
+            layout="@layout/layout_ui_field_header" />
+
+        <LinearLayout
+            android:id="@+id/ldlay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/btn_h_l"
+            android:orientation="horizontal"
+            android:background="@null">
+
+            <ImageButton
+                android:id="@+id/like_btn"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/img_size_l"
+                android:layout_marginEnd="@dimen/padding_small"
+                android:layout_weight="1"
+                app:imageTintList="@{form.text_color}"
+                app:field_background="@{form}"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="@dimen/padding_small"
+                android:scaleType="fitCenter"
+                android:src="@drawable/selector_like" />
+
+            <ImageButton
+                android:id="@+id/dislike_btn"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/img_size_l"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/padding_small"
+                app:field_background="@{form}"
+                app:imageTintList="@{form.text_color}"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="@dimen/padding_small"
+                android:scaleType="fitCenter"
+                android:src="@drawable/selector_dislike" />
+
+        </LinearLayout>
+
+       
+    </LinearLayout>
+</layout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- NOTE: order is important (the first matching state(s) is what is rendered) -->
+    <item
+        android:state_selected="true"
+        android:drawable="@drawable/ic_dislike" />
+    <item
+        android:drawable="@drawable/ic_dislike_border" />
+</selector>

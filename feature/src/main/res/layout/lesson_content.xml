@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="progress"
+            type="Integer" />
+
+        <variable
+            name="done"
+            type="Boolean" />
+
+        <variable
+            name="view"
+            type="android.view.View" />
+
+        <variable
+            name="item"
+            type="co.idearun.data.model.form.Form" />
+        <variable
+            name="listener"
+            type="co.idearun.feature.home.adapter.LessonListListener" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/form_item_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:onClick="@{(v)->listener.openLessonPage(item,v,progress)}"
+        android:transitionName="form_item_lay"
+        tools:targetApi="lollipop">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/padding_large">
+
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="@dimen/img_size_xs"
+                android:layout_height="@dimen/img_size_xs"
+                android:layout_marginTop="@dimen/padding_2xlarge"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_flashcard"
+                app:imageUrl="@{item.logo}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/titleTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_standard"
+                android:layout_marginTop="@dimen/padding_small"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:text="@{item.title}"
+                android:textAlignment="textStart"
+                android:textColor="@color/gray2"
+                android:textSize="@dimen/font_xlarge"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginLeft="@dimen/padding_standard"
+                android:gravity="start" />
+
+            <TextView
+                android:ellipsize="end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_standard"
+                android:maxLines="2"
+                android:autoLink="none"
+                android:textAlignment="textStart"
+                android:textSize="@dimen/font_standard"
+                app:htmlSimpeTxt="@{item.description}"
+                app:layout_constraintStart_toStartOf="@+id/titleTv"
+                app:layout_constraintTop_toBottomOf="@+id/titleTv"
+                android:gravity="start" />
+
+            <RelativeLayout
+                android:id="@+id/relaviteLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_2xlarge"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+                <ImageView
+                    android:id="@+id/categoryIv"
+                    android:layout_width="@dimen/icon_size_large"
+                    android:layout_height="@dimen/icon_size_large"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_coding" />
+
+                <TextView
+                    android:id="@+id/categoryTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/padding_3xsmall"
+                    android:layout_toEndOf="@+id/categoryIv"
+                    android:text="@{item.category.title!=null?item.category.title:@string/other}"
+                    android:textColor="@color/gray2"
+                    android:textSize="@dimen/font_standard"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="@dimen/padding_3xsmall"
+                    android:layout_toRightOf="@+id/categoryIv" />
+
+                <TextView
+                    android:id="@+id/startTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:text="@{done ?@string/review:@string/start,default=@string/start}"
+                    android:textAllCaps="true"
+                    android:textColor="@{done?@color/colorGreen: @color/learning,default= @color/learning}"
+                    android:textSize="@dimen/font_standard"
+                    android:textStyle="bold"
+                    android:visibility="@{progress>0 ? view.GONE : view.VISIBLE,default= visible}"
+                    android:layout_alignParentRight="true" />
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/form_progress"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:max="@{item.fields_list!=null?item.fields_list.size():10}"
+                    android:progress="@{progress}"
+                    android:visibility="@{ progress>0 ? view.VISIBLE: view.GONE,default=gone }" />
+
+            </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/padding_small"
+            android:background="#FFF4F4F4"
+            app:layout_constraintBottom_toBottomOf="@id/relaviteLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,3 @@
+X_API_KEY:"717ed4b1fb84033653eaf6a69da4eb3be1011657"
+BASE_URL:"https://api.formaloo.net/"
+FORM_TAG:"learn-android-tag"

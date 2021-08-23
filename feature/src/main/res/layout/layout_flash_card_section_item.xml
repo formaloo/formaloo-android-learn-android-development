@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="co.idearun.feature.viewmodel.UIViewModel" />
+
+        
+        <variable
+            name="field"
+            type="co.idearun.data.model.form.Fields" />
+        <variable
+            name="form"
+            type="co.idearun.data.model.form.Form" />
+
+        
+    </data>
+
+    <link.fls.swipestack.SwipeStack xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/swipeStack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/padding_3xlarge"
+        android:paddingBottom="@dimen/padding_3xlarge"
+        android:paddingStart="@dimen/padding_standard"
+        android:paddingEnd="@dimen/padding_standard"
+        app:stack_rotation="0"
+        app:stack_spacing="@dimen/padding_xsmall" />
+</layout>

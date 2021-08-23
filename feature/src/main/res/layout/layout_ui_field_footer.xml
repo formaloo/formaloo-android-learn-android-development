@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="co.idearun.feature.viewmodel.UIViewModel" />
+
+        
+        <variable
+            name="field"
+            type="co.idearun.data.model.form.Fields" />
+
+        <variable
+            name="form"
+            type="co.idearun.data.model.form.Form" />
+
+        
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_small">
+
+        <TextView
+            android:id="@+id/error_txv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="@{viewmodel.errorField.slug.equals(field.slug)||viewmodel.errorField.slug.equals(@string/phone_)?viewmodel.errorField.title:@string/dash}"
+            android:textAlignment="viewStart"
+            android:textColor="@color/colorRed"
+            android:textSize="@dimen/font_xlarge" />
+
+    </RelativeLayout>
+</layout>
